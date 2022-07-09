@@ -9,7 +9,7 @@ function computerPlay() {
 function single_round(player, computer) {
     player = player.toLowerCase();
     if (player === computer) {
-        return "Tie"
+        return "Tie!"
     }
     
     switch (player != computer) {
@@ -36,20 +36,24 @@ function game() {
     let player_score = 0;
     let computer_score = 0;
     for (i=0; i<5; i++) {
+        
         let player = prompt("Select your weapon: (rock, paper, scissors): ")
         let computer = computerPlay()
         console.log(`You chose ${player}`)
         console.log(`Computer chose ${computer}`)
-        if ((single_round(player, computer).indexOf("You won!") > -1)) {
+        if (single_round(player, computer).indexOf("Tie!") > -1) {
+            
+        } else if (single_round(player, computer).indexOf("You won!") > -1) {
             player_score += 1;
-        } else if ((single_round(player, computer).indexOf("You lost!") === -1)){
+        } else if (single_round(player, computer).indexOf("You lost!") === -1){
             computer_score += 1;
         };
         
         console.log(single_round(player, computer))
 
-        console.log([player_score, computer_score])
+        console.log("")
     }
+    
     if (player_score > computer_score) {
         console.log(`Player won with ${player_score}!`)
     } else if (player_score < computer_score) {
