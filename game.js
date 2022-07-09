@@ -15,20 +15,28 @@ function single_round(player, computer) {
     switch (player != computer) {
         case (player==="rock" && computer==="paper"):
             return `You lose! ${computer} beats ${player}`;
+            break;
         case (player==="rock" && computer==="scissors"):
             return `You won! ${player} beats ${computer}`;
+            break;
 
         case (player==="paper" && computer==="rock"):
             return `You won! ${player} beats ${computer}`;
+            break;
         case (player==="paper" && computer==="scissors"):
             return `You lose! ${computer} beats ${player}`;
+            break;
 
         case (player==="scissors" && computer==="rock"):
             return `You lose! ${computer} beats ${player}`;
+            break;
         case (player==="scissors" && computer==="paper"):
             return `You won! ${player} beats ${computer}`;
+            break;
 
-        break;
+        default: 
+            return "Something went wrong!"
+            break;
     };
     
 }
@@ -41,7 +49,7 @@ function game() {
         let computer = computerPlay()
         console.log(`You chose ${player}`)
         console.log(`Computer chose ${computer}`)
-        if (single_round(player, computer).indexOf("Tie!") > -1) {
+        if (single_round(player, computer).indexOf("Tie!") > -1 || single_round(player, computer).indexOf("Something went wrong!") > -1) {
             
         } else if (single_round(player, computer).indexOf("You won!") > -1) {
             player_score += 1;
@@ -53,7 +61,7 @@ function game() {
 
         console.log("")
     }
-    
+
     if (player_score > computer_score) {
         console.log(`Player won with ${player_score}!`)
     } else if (player_score < computer_score) {
