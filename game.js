@@ -2,7 +2,7 @@ let computer_score = 0;
 let player_score = 0;
 let gameRunning = true;
 
-// Here we define computerPlay
+// Here we define computer's weapon
 function computerPlay() {
   const options = ["rock", "paper", "scissors"];
   let rand = Math.floor(Math.random() * 3);
@@ -12,10 +12,14 @@ function computerPlay() {
 // Here we define single_round
 function single_round(player, computer) {
   player = player.toLowerCase();
+  
+  const playerWeapon = document.querySelector(".playerWeapon");
+  const computerWeapon = document.querySelector(".computerWeapon");
+  playerWeapon.textContent = `Player's weapon: ${player}`
+  computerWeapon.textContent = `Computer's weapon: ${computer}`
   if (player === computer) {
     return "Tie!";
   }
-
   switch (player !== computer) {
     case player === "rock" && computer === "paper":
       ++computer_score;
@@ -28,13 +32,13 @@ function single_round(player, computer) {
       return `You won! ${player} beats ${computer}`;
     case player === "paper" && computer === "scissors":
       ++computer_score;
-      return `You lose! ${computer} beats ${player}`;
+      return `You lose! ${computer} beat ${player}`;
     case player === "scissors" && computer === "rock":
       ++computer_score;
       return `You lose! ${computer} beats ${player}`;
     case player === "scissors" && computer === "paper":
       ++player_score;
-      return `You won! ${player} beats ${computer}`;
+      return `You won! ${player} beat ${computer}`;
 
     default:
       return "Something went wrong!";
@@ -54,6 +58,11 @@ function updateScore(computer_score, player_score) {
 function clearOutput() {
     const container = document.querySelector(".results");
     container.textContent = "No rounds played yet";
+    const weapons = document.querySelectorAll(".weapons");
+    
+    weapons.forEach((weapon) =>{
+      weapon.textContent = weapon.textContent.split(":")[0]+":";
+    });
 };
 
 // Here we define game()
