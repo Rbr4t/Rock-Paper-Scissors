@@ -50,8 +50,14 @@ function updateScore(computer_score, player_score) {
     let scorePly = `Player score: ${player_score}`;
     scorePlayer.textContent = scorePly;
     scoreComputer.textContent = scoreCpr;
-  }
-}
+  };
+};
+
+function clearOutput() {
+    const container = document.querySelector(".results");
+    container.textContent = "No rounds played yet";
+};
+
 // Here we define game()
 function game(weapon, computer_score, player_score, text) {
   const container = document.querySelector(".results");
@@ -74,7 +80,15 @@ function game(weapon, computer_score, player_score, text) {
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const reset = document.querySelector('#reset');
 
+reset.addEventListener('click', () => {
+    computer_score = 0;
+    player_score = 0;
+    gameRunning = true;
+    updateScore(computer_score, player_score);
+    clearOutput();
+});
 
 rock.addEventListener("click", function () {
   //always add the desired function as a callback one!
