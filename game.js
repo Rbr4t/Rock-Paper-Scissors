@@ -45,7 +45,7 @@ function game() {
     let computer_score = 0;
     for (i=0; i<5; i++) {
         
-        let player = prompt("Select your weapon: (rock, paper, scissors): ")
+        let player = prompt("Select your weapon: (rock, paper, scissors): ", "")
         let computer = computerPlay()
         console.log(`You chose ${player}`)
         console.log(`Computer chose ${computer}`)
