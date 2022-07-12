@@ -42,8 +42,6 @@ function single_round(player, computer) {
 }
 function updateScore(computer_score, player_score) {
   if (computer_score !== 5 || player_score !== 5){
-    
-  
     const scorePlayer = document.querySelector(".scorePlayer");
     const scoreComputer = document.querySelector(".scoreComputer");
     let scoreCpr = `Computer score: ${computer_score}`;
@@ -61,7 +59,6 @@ function clearOutput() {
 // Here we define game()
 function game(weapon, computer_score, player_score, text) {
   const container = document.querySelector(".results");
-  console.log(player_score)
 
   if (player_score === 5) {
     container.textContent = "Player won!";
@@ -70,7 +67,6 @@ function game(weapon, computer_score, player_score, text) {
     container.textContent = "Computer won!";
     gameRunning = false;
   } else {
-    
     container.textContent = text;
   }
   
@@ -98,6 +94,7 @@ rock.addEventListener("click", function () {
     updateScore(computer_score, player_score);
   };
 });
+
 // And this one
 paper.addEventListener("click", function () {
   //like here?
@@ -107,6 +104,7 @@ paper.addEventListener("click", function () {
     updateScore(computer_score, player_score);
   };
 });
+
 // And this one
 scissors.addEventListener("click", function () {
   if (gameRunning){
