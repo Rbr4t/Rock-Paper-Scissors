@@ -5,26 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
-    <script type="text/javascript" src="game.js" defer></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="info">
-            
-            <p class="playerWeapon weapons">Player's weapon: </p>
-            <p class="computerWeapon weapons">Computer's weapon: </p>
-
-            <p class="results">No rounds player yet</p>
-            <p class="scorePlayer">Player score:</p>
-            <p class="scoreComputer">Computer score:</p>
-        
-            <button id="rock">ROCK</button>
-            <button id="paper">PAPER</button>
-            <button id="scissors">SCISSORS</button>
-            <button id="reset">Reset</button>
+        <div class="UI">
+            <div class="elements">
+                <div class="stats">
+                        <div class="weapons">
+                            <p class="weapon" id="playerWeapon">Player's weapon: </p>
+                            <p class="weapon" id="computerWeapon">Computer's weapon: </p>
+                        </div>
+                        <div class="score">
+                            <p class="scorePlayer">Player score:</p>
+                            <p class="scoreComputer">Computer score:</p>
+                        </div>
+                </div>
+                <div class="info">
+                    <p class="results">No rounds player yet</p>
+                    <div class="buttons">
+                        <button id="rock">ROCK</button>
+                        <button id="paper">PAPER</button>
+                        <button id="scissors">SCISSORS</button>
+                        <button id="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
 </body>
 </html>
+<script type="text/javascript" src="game.js" ></script>

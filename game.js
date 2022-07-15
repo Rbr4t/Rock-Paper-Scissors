@@ -13,8 +13,8 @@ function computerPlay() {
 function single_round(player, computer) {
   player = player.toLowerCase();
   
-  const playerWeapon = document.querySelector(".playerWeapon");
-  const computerWeapon = document.querySelector(".computerWeapon");
+  const playerWeapon = document.querySelector('#playerWeapon');
+  const computerWeapon = document.querySelector('#computerWeapon');
   playerWeapon.textContent = `Player's weapon: ${player}`
   computerWeapon.textContent = `Computer's weapon: ${computer}`
   if (player === computer) {
@@ -55,15 +55,6 @@ function updateScore(computer_score, player_score) {
   };
 };
 
-function clearOutput() {
-    const container = document.querySelector(".results");
-    container.textContent = "No rounds played yet";
-    const weapons = document.querySelectorAll(".weapons");
-    
-    weapons.forEach((weapon) =>{
-      weapon.textContent = weapon.textContent.split(":")[0]+":";
-    });
-};
 
 // Here we define game()
 function game(weapon, computer_score, player_score, text) {
@@ -71,12 +62,21 @@ function game(weapon, computer_score, player_score, text) {
 
   if (player_score === 5) {
     container.textContent = "Player won!";
+    container.style.cssText = 'color: #23a612;font-weight: bold;'
     gameRunning = false;
   } else if (computer_score === 5) {
     container.textContent = "Computer won!";
+    container.style.cssText = 'color: red;font-weight: bold;'
     gameRunning = false;
   } else {
+    
     container.textContent = text;
+    console.log(typeof(text));
+    if (text.includes("lose")){
+      container.style.cssText='color: red';
+    } else {
+      container.style.cssText='color: #23a612';
+    }
   }
   
 }
@@ -88,11 +88,7 @@ const scissors = document.querySelector("#scissors");
 const reset = document.querySelector('#reset');
 
 reset.addEventListener('click', () => {
-    computer_score = 0;
-    player_score = 0;
-    gameRunning = true;
-    updateScore(computer_score, player_score);
-    clearOutput();
+    location.reload(); //reload the page, because I couldn't get it working in other ways
 });
 
 rock.addEventListener("click", function () {
