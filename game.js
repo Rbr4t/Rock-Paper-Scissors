@@ -69,17 +69,21 @@ function game(weapon, computer_score, player_score, text) {
     container.style.cssText = 'color: red;font-weight: bold;'
     gameRunning = false;
   } else {
-    
+   
     container.textContent = text;
-    console.log(typeof(text));
+   
     if (text.includes("lose")){
+      
       container.style.cssText='color: red';
-    } else {
+      
+    } else if (text.includes("won")) {
       container.style.cssText='color: #23a612';
+    } else {
+      container.style.cssText='color: black;';
     }
-  }
+  };
   
-}
+};
 
 // Here we grab the DOM elements and set them as variables
 const rock = document.querySelector("#rock");

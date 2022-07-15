@@ -1,4 +1,9 @@
-
+body {
+    background-image: url("rps.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 .container {
     height:98vh;
     display: flex;
@@ -34,4 +39,25 @@
     flex-direction: column;
     
     align-items: center;
+}
+
+.buttons{
+    display: inline-flex;
+    gap: 15px;
+    
+}
+.button {
+    width: 80px;
+    height: 40px;
+    background-color: #878782;
+    border: 1px solid white;
+    border-radius: 10%;
+    cursor:pointer;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateX(-4px);
 }
