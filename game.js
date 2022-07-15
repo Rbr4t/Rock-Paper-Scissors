@@ -42,8 +42,10 @@ function single_round(player, computer) {
 
     default:
       return "Something went wrong!";
-  }
-}
+  };
+};
+
+//function which updates the info on screen
 function updateScore(computer_score, player_score) {
   if (computer_score !== 5 || player_score !== 5){
     const scorePlayer = document.querySelector(".scorePlayer");
@@ -80,7 +82,7 @@ function game(weapon, computer_score, player_score, text) {
       container.style.cssText='color: #23a612';
     } else {
       container.style.cssText='color: black;';
-    }
+    };
   };
   
 };
@@ -104,9 +106,8 @@ rock.addEventListener("click", function () {
   };
 });
 
-// And this one
+
 paper.addEventListener("click", function () {
-  //like here?
   if (gameRunning) {
     let text = single_round("paper", computerPlay());
     game("paper", computer_score, player_score, text);
@@ -114,7 +115,7 @@ paper.addEventListener("click", function () {
   };
 });
 
-// And this one
+
 scissors.addEventListener("click", function () {
   if (gameRunning){
     let text = single_round("scissors", computerPlay());
